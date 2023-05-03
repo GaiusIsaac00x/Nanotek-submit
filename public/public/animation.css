@@ -1,0 +1,122 @@
+:root{
+    --background:#f8f8f8;
+    --dark:#303032;
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    position: relative;
+    background: var(--dark);
+    border:0.25rem solid var(--dark);
+    overflow:hidden;
+    height: 8rem;
+    width:8rem;
+    left:40%;
+}
+
+.line{
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    /* transform: translate(-50% , -50%); */
+    width: 100px;
+    height: 2px;
+    background: transparent;
+    /* border-radius: 50%; */
+    border: 1px solid #4CAF50;
+    animation: anima 2s linear infinite;
+}
+
+
+
+.ball{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-radius: 50%;
+    border: 10px solid #fff;
+    animation: bounce 2s linear infinite; 
+}
+
+@keyframes bounce {
+    0%{
+        top:calc(50% + 40px)
+    }
+    25%{
+        top:calc(50% - 100px)
+    }
+    50%{
+        top:calc(50% - 55px)
+    }
+    75%{
+        top:calc(50% - 90px)
+    }
+    100%{
+        top:calc(50% + 40px)
+    }
+}
+
+
+
+
+
+
+.box::before{
+    position: relative;
+    content: "Load Pin";
+    top: 80px;
+    font-size: 12px;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+.box::after{
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    left: -20%;
+    right: -50%;
+    background:var(--background);
+    border-radius: 45%;
+    top: -20%;
+    animation: spin 20s ease-in infinite;
+}
+
+.load-pin h3{
+    position: relative;
+    top: 75px;
+    left: 20%;
+}
+
+@media screen and (max-width:992px) {
+    .load-pin h3{
+        left: 0%;
+    }
+
+    .input{
+        padding-left: 20px;
+    }
+}
+
+@keyframes spin{
+    0% {
+        transform: translateY(0)  rotate(0deg);
+    }
+
+    100%{
+        transform: translateY(-100%) rotate(500deg);
+    }
+}
